@@ -14,7 +14,7 @@ import {
   Linkedin,
 } from "lucide-react";
 
-export default function DeveloperStats() {
+export default function LiveStats() {
 
   const [github, setGithub] =
     useState(null);
@@ -221,7 +221,7 @@ export default function DeveloperStats() {
               </p>
 
               <h2>
-                Let's Connect
+                Let&apos;s Connect
                 Professionally
               </h2>
 
