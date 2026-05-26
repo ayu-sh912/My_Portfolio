@@ -1,0 +1,457 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Ref :: https://twitter.com/steventey/status/1677339375645126659 */
+:root {
+  --app-gray-default: 255 255 255;
+  --app-gray-50: 249 250 251;
+  --app-gray-100: 243 244 246;
+  --app-gray-200: 229 231 235;
+  --app-gray-300: 209 213 219;
+  --app-gray-400: 156 163 175;
+  --app-gray-500: 107 114 128;
+  --app-gray-600: 75 85 99;
+  --app-gray-700: 55 65 81;
+  --app-gray-800: 31 41 55;
+  --app-gray-900: 17 24 39;
+  --app-gray-950: 3 7 18;
+}
+
+.dark {
+  --app-gray-default: 3 7 18;
+  --app-gray-50: 17 24 39;
+  --app-gray-100: 31 41 55;
+  --app-gray-200: 55 65 81;
+  --app-gray-300: 75 85 99;
+  --app-gray-400: 107 114 128;
+  --app-gray-500: 156 163 175;
+  --app-gray-600: 209 213 219;
+  --app-gray-700: 229 231 235;
+  --app-gray-800: 243 244 246;
+  --app-gray-900: 249 250 251;
+  --app-gray-950: 255 255 255;
+}
+/* ══════════════════════════════ INTRO ANIMATION */
+
+#intro-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  background: #0a0a0c;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+#intro-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.intro-content {
+  text-align: center;
+}
+
+.intro-logo {
+  font-size: clamp(2rem, 6vw, 4rem);
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 20px;
+
+  font-family: monospace;
+}
+
+.intro-lt,
+.intro-gt {
+  color: #777;
+}
+
+.intro-brand {
+  color: #fff;
+
+  display: inline-block;
+  overflow: hidden;
+
+  max-width: 0;
+  white-space: nowrap;
+
+  animation: typeIn 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
+}
+
+.intro-slash {
+  color: #3b82f6;
+
+  opacity: 0;
+
+  animation: fadeIn 0.3s ease 1.5s forwards;
+}
+
+@keyframes typeIn {
+  to {
+    max-width: 600px;
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.intro-tagline {
+  color: #888;
+
+  font-size: 15px;
+
+  opacity: 0;
+
+  animation: fadeIn 0.5s ease 1.8s forwards;
+
+  margin-bottom: 32px;
+}
+
+.intro-bar {
+  width: 200px;
+  height: 2px;
+
+  background: #1f1f1f;
+
+  border-radius: 2px;
+  overflow: hidden;
+
+  margin: 0 auto;
+
+  opacity: 0;
+
+  animation: fadeIn 0.3s ease 1.8s forwards;
+}
+
+.intro-bar-fill {
+  height: 100%;
+  width: 0;
+
+  background: #3b82f6;
+
+  animation: barFill 1.5s ease 1.9s forwards;
+}
+
+@keyframes barFill {
+  to {
+    width: 100%;
+  }
+}
+/* ══════════════════════════════ DEVELOPER STATS */
+
+.developer-stats {
+  padding: 120px 8%;
+  background: #0a0a0c;
+}
+
+.stats-container {
+  max-width: 1300px;
+  margin: auto;
+}
+
+/* HEADER */
+
+.section-header {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.section-header p {
+  color: #3b82f6;
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.section-header h2 {
+  color: white;
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.section-header h2 span {
+  background: linear-gradient(
+    90deg,
+    #3b82f6,
+    #60a5fa
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* GRID */
+
+.stats-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(250px, 1fr));
+
+  gap: 30px;
+}
+
+/* CARD */
+
+.stats-card {
+  background:
+    rgba(255,255,255,0.03);
+
+  border:
+    1px solid rgba(255,255,255,0.06);
+
+  border-radius: 24px;
+
+  padding: 40px 30px;
+
+  text-align: center;
+
+  transition: 0.35s ease;
+
+  backdrop-filter: blur(10px);
+}
+
+.stats-card:hover {
+  transform: translateY(-10px);
+
+  border-color:
+    rgba(59,130,246,0.4);
+
+  box-shadow:
+    0 20px 60px rgba(59,130,246,0.15);
+}
+
+/* ICON */
+
+.stats-icon {
+  width: 80px;
+  height: 80px;
+
+  margin: 0 auto 25px;
+
+  border-radius: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(59,130,246,0.2),
+      rgba(96,165,250,0.08)
+    );
+
+  color: #60a5fa;
+}
+
+/* TEXT */
+
+.stats-card h3 {
+  color: white;
+
+  font-size: 3rem;
+
+  font-weight: 700;
+
+  margin-bottom: 12px;
+}
+
+.stats-card span {
+  color: #9ca3af;
+
+  font-size: 15px;
+}
+
+/* LINKEDIN SECTION */
+
+.linkedin-section {
+  margin-top: 140px;
+}
+
+.linkedin-content {
+  display: grid;
+
+  grid-template-columns:
+    1fr 400px;
+
+  gap: 60px;
+
+  align-items: center;
+}
+
+.linkedin-tag {
+  color: #0ea5e9;
+
+  letter-spacing: 2px;
+
+  margin-bottom: 15px;
+
+  font-size: 14px;
+
+  font-weight: 600;
+}
+
+.linkedin-content h2 {
+  color: white;
+
+  font-size: clamp(2rem, 4vw, 3.5rem);
+
+  margin-bottom: 20px;
+}
+
+.linkedin-desc {
+  color: #9ca3af;
+
+  line-height: 1.8;
+
+  margin-bottom: 35px;
+}
+
+.linkedin-btn {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #0077b5,
+      #0ea5e9
+    );
+
+  color: white;
+
+  padding: 16px 28px;
+
+  border-radius: 14px;
+
+  text-decoration: none;
+
+  font-weight: 600;
+
+  transition: 0.35s ease;
+}
+
+.linkedin-btn:hover {
+  transform: translateY(-4px);
+}
+
+/* LINKEDIN CARD */
+
+.linkedin-card {
+  background:
+    rgba(255,255,255,0.03);
+
+  border:
+    1px solid rgba(255,255,255,0.06);
+
+  border-radius: 28px;
+
+  padding: 40px;
+
+  text-align: center;
+
+  backdrop-filter: blur(10px);
+}
+
+.linkedin-avatar {
+  width: 110px;
+  height: 110px;
+
+  border-radius: 50%;
+
+  margin: auto auto 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      #0077b5,
+      #0ea5e9
+    );
+
+  color: white;
+
+  font-size: 2rem;
+
+  font-weight: 700;
+}
+
+.linkedin-card h3 {
+  color: white;
+
+  font-size: 1.7rem;
+
+  margin-bottom: 10px;
+}
+
+.linkedin-card span {
+  color: #9ca3af;
+}
+
+.linkedin-stats {
+  display: flex;
+
+  justify-content: space-between;
+
+  margin-top: 35px;
+}
+
+.linkedin-stats strong {
+  color: white;
+
+  font-size: 1.4rem;
+}
+
+.linkedin-stats p {
+  color: #9ca3af;
+
+  margin-top: 5px;
+
+  font-size: 14px;
+}
+
+/* MOBILE */
+
+@media (max-width: 992px) {
+
+  .linkedin-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .developer-stats {
+    padding: 90px 5%;
+  }
+
+  .stats-card {
+    padding: 35px 25px;
+  }
+
+  .stats-card h3 {
+    font-size: 2.3rem;
+  }
+
+  .linkedin-card {
+    padding: 30px;
+  }
+}
