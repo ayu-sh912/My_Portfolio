@@ -221,7 +221,7 @@ export default function DeveloperStats() {
               </p>
 
               <h2>
-                Let's Connect
+                Let&apos;s Connect
                 Professionally
               </h2>
 
