@@ -87,7 +87,7 @@ body::-webkit-scrollbar {
 
   font-size: clamp(2.5rem, 7vw, 5.5rem);
   font-weight: 600;
-  line-height: 1;
+  line-height: 1.15;
 
   letter-spacing: -0.05em;
 
@@ -95,7 +95,7 @@ body::-webkit-scrollbar {
     Inter,
     sans-serif;
 
-  margin-bottom: 42px;
+  margin-bottom: 30px;
 }
 
 /* SYMBOLS */
