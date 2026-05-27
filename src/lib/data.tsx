@@ -82,91 +82,179 @@ export const SOCIAL_LINKS = [
   },
 ];
 
-export const TECHNOLOGIES: TechDetails[] = [
+export const SKILL_CATEGORIES = [
   {
-    label: 'Javascript',
-    logo: LogoJavascript,
-    url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
+    title: 'Frontend',
+    technologies: [
+      {
+        label: 'Javascript',
+        logo: LogoJavascript,
+        url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
+      },
+      {
+        label: 'Typescript',
+        logo: LogoTypescript,
+        url: 'https://www.typescriptlang.org/',
+      },
+      {
+        label: 'React',
+        logo: LogoReact,
+        url: 'https://react.dev/',
+      },
+      {
+        label: 'Next.js',
+        logo: LogoNextjs,
+        url: 'https://nextjs.org/',
+      },
+      {
+        label: 'Tailwindcss',
+        logo: LogoTailwindcss,
+        url: 'https://tailwindcss.com/',
+      },
+    ],
   },
+
   {
-    label: 'Typescript',
-    logo: LogoTypescript,
-    url: 'https://www.typescriptlang.org/',
+    title: 'Backend',
+    technologies: [
+      {
+        label: 'Node.js',
+        logo: LogoNodejs,
+        url: 'https://nodejs.org/en',
+      },
+      {
+        label: 'Express.js',
+        logo: LogoExpress,
+        darkModeLogo: LogoExpressLight,
+        url: 'https://expressjs.com/',
+      },
+      {
+        label: 'Socket.io',
+        logo: LogoSocket,
+        darkModeLogo: LogoSocketLight,
+        url: 'https://socket.io/',
+      },
+    ],
   },
+
   {
-    label: 'React',
-    logo: LogoReact,
-    url: 'https://react.dev/',
+    title: 'Database',
+    technologies: [
+      {
+        label: 'PostgreSQL',
+        logo: LogoPostgreSQL,
+        url: 'https://www.postgresql.org/',
+      },
+      {
+        label: 'MongoDB',
+        logo: LogoMongoDB,
+        url: 'https://www.mongodb.com/',
+      },
+    ],
   },
+
   {
-    label: 'Next.js',
-    logo: LogoNextjs,
-    url: 'https://nextjs.org/',
-  },
-  {
-    label: 'Node.js',
-    logo: LogoNodejs,
-    url: 'https://nodejs.org/en',
-  },
-  {
-    label: 'Express.js',
-    logo: LogoExpress,
-    darkModeLogo: LogoExpressLight,
-    url: 'https://expressjs.com/',
-  },
-  {
-    label: 'Nest.js',
-    logo: LogoNest,
-    url: 'https://nestjs.com/',
-  },
-  {
-    label: 'Socket.io',
-    logo: LogoSocket,
-    darkModeLogo: LogoSocketLight,
-    url: 'https://socket.io/',
-  },
-  {
-    label: 'PostgreSQL',
-    logo: LogoPostgreSQL,
-    url: 'https://www.postgresql.org/',
-  },
-  {
-    label: 'MongoDB',
-    logo: LogoMongoDB,
-    url: 'https://www.mongodb.com/',
-  },
-  {
-    label: 'Sass/Scss',
-    logo: LogoSass,
-    url: 'https://sass-lang.com/',
-  },
-  {
-    label: 'Tailwindcss',
-    logo: LogoTailwindcss,
-    url: 'https://tailwindcss.com/',
-  },
-  {
-    label: 'Figma',
-    logo: LogoFigma,
-    url: 'https://www.figma.com/',
-  },
-  {
-    label: 'Cypress',
-    logo: LogoCypress,
-    darkModeLogo: LogoCypressLight,
-    url: 'https://www.cypress.io/',
-  },
-  {
-    label: 'Storybook',
-    logo: LogoStorybook,
-    url: 'https://storybook.js.org/',
-  },
-  {
-    label: 'Git',
-    logo: LogoGit,
-    url: 'https://git-scm.com/',
+    title: 'Tools & Design',
+    technologies: [
+      {
+        label: 'Figma',
+        logo: LogoFigma,
+        url: 'https://www.figma.com/',
+      },
+      {
+        label: 'Git',
+        logo: LogoGit,
+        url: 'https://git-scm.com/',
+      },
+    ],
   },
 ];
+
+// export const TECHNOLOGIES: TechDetails[] = [
+//   {
+//     label: 'Javascript',
+//     logo: LogoJavascript,
+//     url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
+//   },
+//   {
+//     label: 'Typescript',
+//     logo: LogoTypescript,
+//     url: 'https://www.typescriptlang.org/',
+//   },
+//   {
+//     label: 'React',
+//     logo: LogoReact,
+//     url: 'https://react.dev/',
+//   },
+//   {
+//     label: 'Next.js',
+//     logo: LogoNextjs,
+//     url: 'https://nextjs.org/',
+//   },
+//   {
+//     label: 'Node.js',
+//     logo: LogoNodejs,
+//     url: 'https://nodejs.org/en',
+//   },
+//   {
+//     label: 'Express.js',
+//     logo: LogoExpress,
+//     darkModeLogo: LogoExpressLight,
+//     url: 'https://expressjs.com/',
+//   },
+//   {
+//     label: 'Nest.js',
+//     logo: LogoNest,
+//     url: 'https://nestjs.com/',
+//   },
+//   {
+//     label: 'Socket.io',
+//     logo: LogoSocket,
+//     darkModeLogo: LogoSocketLight,
+//     url: 'https://socket.io/',
+//   },
+//   {
+//     label: 'PostgreSQL',
+//     logo: LogoPostgreSQL,
+//     url: 'https://www.postgresql.org/',
+//   },
+//   {
+//     label: 'MongoDB',
+//     logo: LogoMongoDB,
+//     url: 'https://www.mongodb.com/',
+//   },
+//   {
+//     label: 'Sass/Scss',
+//     logo: LogoSass,
+//     url: 'https://sass-lang.com/',
+//   },
+//   {
+//     label: 'Tailwindcss',
+//     logo: LogoTailwindcss,
+//     url: 'https://tailwindcss.com/',
+//   },
+//   {
+//     label: 'Figma',
+//     logo: LogoFigma,
+//     url: 'https://www.figma.com/',
+//   },
+//   {
+//     label: 'Cypress',
+//     logo: LogoCypress,
+//     darkModeLogo: LogoCypressLight,
+//     url: 'https://www.cypress.io/',
+//   },
+//   {
+//     label: 'Storybook',
+//     logo: LogoStorybook,
+//     url: 'https://storybook.js.org/',
+//   },
+//   {
+//     label: 'Git',
+//     logo: LogoGit,
+//     url: 'https://git-scm.com/',
+//   },
+// ];
 
 export const PROJECTS: ProjectDetails[] = [
   {
