@@ -183,7 +183,7 @@ const SkillsSection = () => {
                   <div
                     className="
                       flex
-                      h-14
+                      h-20
                       w-14
                       items-center
                       justify-center
