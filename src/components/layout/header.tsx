@@ -20,9 +20,17 @@ import DownloadCV from '@/components/general/download-cv';
 import Typography from '@/components/general/typography';
 
 const Logo = () => (
-  <Typography variant="h3" className="font-bold">
-    {'<AA Developers/>'}
-  </Typography>
+  <div className="flex flex-col leading-none">
+      <Typography variant="h3" className="font-semibold tracking-tight">
+        {`<AA Developer`}
+        <span className="text-blue-500">/</span>
+        {`>`}
+      </Typography>
+      <Typography variant="body2" className=" hidden md:block ml-1 text-[11px] font-medium tracking-[0.22em] text-blue-500 opacity-80">
+        Ayush Agrawal Developer
+      </Typography>
+  </div>
+  
 );
 
 const Header = () => {

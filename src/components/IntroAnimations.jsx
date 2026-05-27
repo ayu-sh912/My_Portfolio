@@ -20,7 +20,7 @@ export default function IntroAnimation() {
           <span className="intro-lt">&lt;</span>
 
           <span className="intro-brand">
-            AA Developers
+            AA Developer
           </span>
 
           <span className="intro-slash">/</span>
