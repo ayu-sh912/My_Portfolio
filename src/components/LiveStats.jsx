@@ -165,7 +165,7 @@ const LiveStats = () => {
               </Link>
             </div>
 
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
               {githubStats.map((item, index) => (
                 <div
                   key={index}
@@ -254,7 +254,7 @@ const LiveStats = () => {
               </Link>
             </div>
 
-            <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
               {leetcodeStats.map((item, index) => (
                 <div
                   key={index}
@@ -423,7 +423,7 @@ const LiveStats = () => {
                 <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-3 text-sm text-gray-600 dark:text-gray-400">
                   <div className="flex items-center gap-2">
                     <GraduationCap size={15} />
-                    <span>GLA University</span>
+                    <span>GLA University, Mathura</span>
                   </div>
 
                   <div className="flex items-center gap-2">
