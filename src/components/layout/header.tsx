@@ -22,24 +22,24 @@ import Typography from '@/components/general/typography';
 const Logo = () => (
   <div className="flex flex-col leading-none">
       <Typography variant="h3" className="font-semibold tracking-tight">
-        {`<AA Developer`}
+        {`<Ayush Agrawal`}
         <span className="text-blue-500">/</span>
         {`>`}
       </Typography>
       <Typography
-            variant="body2"
+            variant="body1"
             className="
               ml-1
-              text-[8px]
-              md:text-[13px]
+              text-[10px]
+              md:text-[15px]
               font-medium
               tracking-[0.18em]
-              md:tracking-[0.22em]
+              md:tracking-[0.20em]
               text-blue-500
               opacity-90
             "
           >        
-          {`<Ayush Agrawal Developer/>`}
+          {`<AA Developer/>`}
       </Typography>
   </div>
   
