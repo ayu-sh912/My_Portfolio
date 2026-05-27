@@ -109,12 +109,12 @@ const ContactSection = () => {
 
   return (
     <Container id="contact">
-      <section className="relative overflow-hidden border-x border-t border-white/[0.05] bg-[#030712] px-4 pt-10 md:px-8 md:pt-14">
+      <section className="relative overflow-hidden border-x border-t border-black/5 bg-white px-4 pt-10 dark:border-white/[0.06] dark:bg-[#030712] md:px-8 md:pt-14">
 
         {/* Glow */}
-        <div className="pointer-events-none absolute left-0 top-0 h-72 w-72 rounded-full bg-blue-500/10 blur-3xl"></div>
+        <div className="pointer-events-none absolute left-0 top-0 h-72 w-72 rounded-full bg-blue-500/5 blur-3xl dark:bg-blue-500/10"></div>
 
-        <div className="pointer-events-none absolute bottom-0 right-0 h-72 w-72 rounded-full bg-cyan-500/10 blur-3xl"></div>
+        <div className="pointer-events-none absolute bottom-0 right-0 h-72 w-72 rounded-full bg-cyan-500/5 blur-3xl dark:bg-cyan-500/10"></div>
 
         {/* Heading */}
         <div className="relative flex flex-col items-center text-center">
@@ -123,7 +123,7 @@ const ContactSection = () => {
 
           <Typography
             variant="h2"
-            className="mt-4 max-w-4xl text-3xl font-bold leading-tight text-white md:text-5xl"
+            className="mt-4 max-w-4xl text-3xl font-bold leading-tight text-gray-900 dark:text-white md:text-5xl"
           >
             Let&apos;s Build{' '}
             <span className="bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent">
@@ -131,7 +131,7 @@ const ContactSection = () => {
             </span>
           </Typography>
 
-          <Typography className="mt-4 max-w-2xl text-sm leading-7 text-gray-400 md:text-lg">
+          <Typography className="mt-4 max-w-2xl text-sm leading-7 text-gray-600 dark:text-gray-400 md:text-lg">
             Open to collaborations, freelance projects,
             internships and meaningful developer
             connections.
@@ -142,21 +142,21 @@ const ContactSection = () => {
         <div className="relative mt-10 grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
 
           {/* LEFT */}
-          <div className="rounded-[28px] border border-white/[0.06] bg-gradient-to-br from-[#071120] to-[#08111f] p-5">
+          <div className="rounded-[28px] border border-black/5 bg-gradient-to-br from-white to-slate-50 p-5 shadow-sm dark:border-white/[0.06] dark:from-[#071120] dark:to-[#08111f] dark:shadow-none">
 
             {/* Header */}
             <div className="mb-6 flex items-center gap-3">
 
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-500/10 text-blue-400">
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-500/10 text-blue-600 dark:text-blue-400">
                 <Mail size={20} />
               </div>
 
               <div>
-                <h3 className="text-xl font-bold text-white">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white">
                   Contact Information
                 </h3>
 
-                <p className="mt-1 text-sm text-gray-400">
+                <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
                   Let&apos;s create something impactful
                   together
                 </p>
@@ -167,20 +167,20 @@ const ContactSection = () => {
             <div className="flex flex-col gap-3">
 
               {/* Email */}
-              <div className="flex items-center justify-between rounded-2xl border border-white/[0.06] bg-white/[0.03] p-4">
+              <div className="flex items-center justify-between rounded-2xl border border-black/5 bg-white p-4 dark:border-white/[0.06] dark:bg-white/[0.03]">
 
                 <div className="flex items-center gap-4">
 
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-500/10 text-blue-400">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400">
                     <Mail size={18} />
                   </div>
 
                   <div>
-                    <p className="text-sm text-gray-400">
+                    <p className="text-sm text-gray-600 dark:text-gray-400">
                       Email
                     </p>
 
-                    <p className="break-all font-semibold text-white">
+                    <p className="break-all font-semibold text-gray-900 dark:text-white">
                       {email}
                     </p>
                   </div>
@@ -190,27 +190,27 @@ const ContactSection = () => {
                   onClick={() =>
                     handleCopy(email, 'email')
                   }
-                  className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.04] text-gray-300 transition-all duration-300 hover:bg-blue-500 hover:text-white"
+                  className="flex h-10 w-10 items-center justify-center rounded-xl border border-black/5 bg-slate-100 text-gray-700 transition-all duration-300 hover:bg-blue-500 hover:text-white dark:border-white/[0.06] dark:bg-white/[0.04] dark:text-gray-300"
                 >
                   <Copy size={16} />
                 </button>
               </div>
 
               {/* Phone */}
-              <div className="flex items-center justify-between rounded-2xl border border-white/[0.06] bg-white/[0.03] p-4">
+              <div className="flex items-center justify-between rounded-2xl border border-black/5 bg-white p-4 dark:border-white/[0.06] dark:bg-white/[0.03]">
 
                 <div className="flex items-center gap-4">
 
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-500/10 text-blue-400">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400">
                     <Phone size={18} />
                   </div>
 
                   <div>
-                    <p className="text-sm text-gray-400">
+                    <p className="text-sm text-gray-600 dark:text-gray-400">
                       Phone
                     </p>
 
-                    <p className="font-semibold text-white">
+                    <p className="font-semibold text-gray-900 dark:text-white">
                       {phone}
                     </p>
                   </div>
@@ -223,27 +223,27 @@ const ContactSection = () => {
                       'phone'
                     )
                   }
-                  className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.04] text-gray-300 transition-all duration-300 hover:bg-blue-500 hover:text-white"
+                  className="flex h-10 w-10 items-center justify-center rounded-xl border border-black/5 bg-slate-100 text-gray-700 transition-all duration-300 hover:bg-blue-500 hover:text-white dark:border-white/[0.06] dark:bg-white/[0.04] dark:text-gray-300"
                 >
                   <Copy size={16} />
                 </button>
               </div>
 
               {/* Location */}
-              <div className="rounded-2xl border border-white/[0.06] bg-white/[0.03] p-4">
+              <div className="rounded-2xl border border-black/5 bg-white p-4 dark:border-white/[0.06] dark:bg-white/[0.03]">
 
                 <div className="flex items-center gap-4">
 
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-500/10 text-blue-400">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400">
                     <MapPin size={18} />
                   </div>
 
                   <div>
-                    <p className="text-sm text-gray-400">
+                    <p className="text-sm text-gray-600 dark:text-gray-400">
                       Location
                     </p>
 
-                    <p className="font-semibold text-white">
+                    <p className="font-semibold text-gray-900 dark:text-white">
                       Firozabad, Uttar Pradesh, India
                     </p>
                   </div>
@@ -251,22 +251,22 @@ const ContactSection = () => {
               </div>
 
               {/* Availability */}
-              <div className="rounded-2xl border border-white/[0.06] bg-white/[0.03] p-4">
+              <div className="rounded-2xl border border-black/5 bg-white p-4 dark:border-white/[0.06] dark:bg-white/[0.03]">
 
                 <div className="flex items-center justify-between">
 
                   <div className="flex items-center gap-4">
 
-                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-green-500/10 text-green-400">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-green-500/10 text-green-500 dark:text-green-400">
                       <CheckCircle2 size={18} />
                     </div>
 
                     <div>
-                      <p className="text-sm text-gray-400">
+                      <p className="text-sm text-gray-600 dark:text-gray-400">
                         Availability
                       </p>
 
-                      <p className="font-semibold text-green-400">
+                      <p className="font-semibold text-green-600 dark:text-green-400">
                         Open for opportunities
                       </p>
                     </div>
@@ -280,7 +280,7 @@ const ContactSection = () => {
             {/* Social */}
             <div className="mt-6">
 
-              <h4 className="text-lg font-bold text-white">
+              <h4 className="text-lg font-bold text-gray-900 dark:text-white">
                 Connect with me
               </h4>
 
@@ -307,7 +307,7 @@ const ContactSection = () => {
                     key={index}
                     href={item.href}
                     target="_blank"
-                    className="flex items-center justify-center gap-2 rounded-2xl border border-white/[0.06] bg-white/[0.04] px-4 py-3 text-sm font-medium text-gray-300 transition-all duration-300 hover:-translate-y-1 hover:border-blue-500 hover:text-blue-400"
+                    className="flex items-center justify-center gap-2 rounded-2xl border border-black/5 bg-white px-4 py-3 text-sm font-medium text-gray-700 transition-all duration-300 hover:-translate-y-1 hover:border-blue-500 hover:text-blue-600 dark:border-white/[0.06] dark:bg-white/[0.04] dark:text-gray-300 dark:hover:text-blue-400"
                   >
                     {item.icon}
                     {item.label}
@@ -318,21 +318,21 @@ const ContactSection = () => {
           </div>
 
           {/* RIGHT */}
-          <div className="rounded-[28px] border border-white/[0.06] bg-gradient-to-br from-[#071120] to-[#08111f] p-5">
+          <div className="rounded-[28px] border border-black/5 bg-gradient-to-br from-white to-slate-50 p-5 shadow-sm dark:border-white/[0.06] dark:from-[#071120] dark:to-[#08111f] dark:shadow-none">
 
             {/* Header */}
             <div className="mb-6 flex items-center gap-3">
 
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-500/10 text-blue-400">
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-500/10 text-blue-600 dark:text-blue-400">
                 <Send size={20} />
               </div>
 
               <div>
-                <h3 className="text-xl font-bold text-white">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white">
                   Send Me a Message
                 </h3>
 
-                <p className="mt-1 text-sm text-gray-400">
+                <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
                   I&apos;ll get back within 24 hours
                 </p>
               </div>
@@ -353,7 +353,7 @@ const ContactSection = () => {
                   onChange={handleChange}
                   placeholder="Your Name"
                   required
-                  className="h-12 w-full rounded-2xl border border-white/[0.06] bg-white/[0.03] px-5 text-white outline-none transition-all duration-300 placeholder:text-gray-500 focus:border-blue-500"
+                  className="h-12 w-full rounded-2xl border border-black/5 bg-white px-5 text-gray-900 outline-none transition-all duration-300 placeholder:text-gray-400 focus:border-blue-500 dark:border-white/[0.06] dark:bg-white/[0.03] dark:text-white dark:placeholder:text-gray-500"
                 />
 
                 <input
@@ -363,7 +363,7 @@ const ContactSection = () => {
                   onChange={handleChange}
                   placeholder="Your Email"
                   required
-                  className="h-12 w-full rounded-2xl border border-white/[0.06] bg-white/[0.03] px-5 text-white outline-none transition-all duration-300 placeholder:text-gray-500 focus:border-blue-500"
+                  className="h-12 w-full rounded-2xl border border-black/5 bg-white px-5 text-gray-900 outline-none transition-all duration-300 placeholder:text-gray-400 focus:border-blue-500 dark:border-white/[0.06] dark:bg-white/[0.03] dark:text-white dark:placeholder:text-gray-500"
                 />
               </div>
 
@@ -374,7 +374,7 @@ const ContactSection = () => {
                 onChange={handleChange}
                 placeholder="Subject"
                 required
-                className="h-12 w-full rounded-2xl border border-white/[0.06] bg-white/[0.03] px-5 text-white outline-none transition-all duration-300 placeholder:text-gray-500 focus:border-blue-500"
+                className="h-12 w-full rounded-2xl border border-black/5 bg-white px-5 text-gray-900 outline-none transition-all duration-300 placeholder:text-gray-400 focus:border-blue-500 dark:border-white/[0.06] dark:bg-white/[0.03] dark:text-white dark:placeholder:text-gray-500"
               />
 
               <textarea
@@ -384,7 +384,7 @@ const ContactSection = () => {
                 onChange={handleChange}
                 placeholder="Tell me about your project..."
                 required
-                className="w-full rounded-2xl border border-white/[0.06] bg-white/[0.03] px-5 py-4 text-white outline-none transition-all duration-300 placeholder:text-gray-500 focus:border-blue-500"
+                className="w-full rounded-2xl border border-black/5 bg-white px-5 py-4 text-gray-900 outline-none transition-all duration-300 placeholder:text-gray-400 focus:border-blue-500 dark:border-white/[0.06] dark:bg-white/[0.03] dark:text-white dark:placeholder:text-gray-500"
               ></textarea>
 
               <button
@@ -407,7 +407,7 @@ const ContactSection = () => {
 
         {/* Copy Toast */}
         {copied && (
-          <div className="fixed bottom-6 right-6 z-50 rounded-xl bg-white px-5 py-3 text-sm font-medium text-black shadow-xl">
+          <div className="fixed bottom-6 right-6 z-50 rounded-xl bg-black px-5 py-3 text-sm font-medium text-white shadow-xl dark:bg-white dark:text-black">
             {copied === 'email'
               ? 'Email copied!'
               : 'Phone number copied!'}
