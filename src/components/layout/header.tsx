@@ -26,8 +26,20 @@ const Logo = () => (
         <span className="text-blue-500">/</span>
         {`>`}
       </Typography>
-      <Typography variant="body2" className=" hidden md:block ml-1 text-[11px] font-medium tracking-[0.22em] text-blue-500 opacity-80">
-        Ayush Agrawal Developer
+      <Typography
+            variant="body2"
+            className="
+              ml-1
+              text-[8px]
+              md:text-[13px]
+              font-medium
+              tracking-[0.18em]
+              md:tracking-[0.22em]
+              text-blue-500
+              opacity-90
+            "
+          >        
+          {`<Ayush Agrawal Developer/>`}
       </Typography>
   </div>
   
