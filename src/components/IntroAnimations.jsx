@@ -17,16 +17,20 @@ export default function IntroAnimation() {
     <div id="intro-overlay" className={hide ? "hidden" : ""}>
       <div className="intro-content">
         <div className="intro-logo">
-          <span className="intro-lt">&lt;</span>
+              <span className="intro-lt">&lt;</span>
 
-          <span className="intro-brand">
-            AA Developer
-          </span>
+              <span className="intro-brand">
+                Ayush Agrawal
+              </span>
 
-          <span className="intro-slash">/</span>
+              <span className="intro-slash">/</span>
 
-          <span className="intro-gt">&gt;</span>
-        </div>
+              <span className="intro-gt">&gt;</span>
+
+              <span className="intro-mini-tag">
+                &lt;AA Developers/&gt;
+              </span>
+            </div>
 
         <div className="intro-tagline">
           Building the web, one component at a time.

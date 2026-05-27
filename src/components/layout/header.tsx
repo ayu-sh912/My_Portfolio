@@ -39,7 +39,7 @@ const Logo = () => (
               opacity-90
             "
           >        
-          {`<AA Developer/>`}
+          {`<AA Developers/>`}
       </Typography>
   </div>
   
