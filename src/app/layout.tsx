@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import { Metadata } from 'next';
 
 import './globals.css';
+import VisitorTracker from '@/components/visitor-tracker';
 import Header from '@/components/layout/header';
 import { Providers } from '@/lib/providers';
 import Footer from '@/components/layout/footer';
@@ -88,6 +89,7 @@ export default function RootLayout({
       ) : null}
       <body className={`${inter.className} bg-gray text-gray-600 antialiased`}>
         <Providers>
+          <VisitorTracker />
           <Header />
           <main className="flex min-h-screen w-full flex-col">{children}</main>
           <Footer />
