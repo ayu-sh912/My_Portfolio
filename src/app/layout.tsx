@@ -12,7 +12,7 @@ const inter = Inter({ subsets: ['latin'] });
 const title = 'Ayush Agrawal | Full Stack Developer From Firozabad, India.';
 const description =
   'A self-proclaimed designer who specializes in full stack development (React.js & Node.js), from Firozabad, India.';
-const url = 'https://ayush-dev704.vercel.app';
+const url = 'https://aa-dev704.vercel.app';
 
 export const metadata: Metadata = {
   metadataBase: new URL(url),
