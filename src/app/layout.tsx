@@ -12,13 +12,17 @@ const inter = Inter({ subsets: ['latin'] });
 const title = 'Ayush Agrawal | Full Stack Developer From Firozabad, India.';
 const description =
   'A self-proclaimed designer who specializes in full stack development (React.js & Node.js), from Firozabad, India.';
-const url = 'https://ayushagrawal.dev';
+const url = 'https://ayush-dev704.vercel.app';
 
 export const metadata: Metadata = {
   metadataBase: new URL(url),
   title,
   description,
   keywords: [
+    'Ayush Developer',
+    'AA Developers',
+    'Ayush Agrawal',
+    'Full Stack Developer',
     'Frontend Developer',
     'Backend Developer',
     'Full Stack Developer',
@@ -44,8 +48,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title,
-    description,
+    title: 'Ayush Agrawal | Full Stack Developer From Firozabad, India.',
+    description: 'A self-proclaimed designer who specializes in full stack development (React.js & Node.js), from Firozabad, India.',
     creator: '@ayushagrawal',
     images: '/images/open-graph-ayush.png',
   },

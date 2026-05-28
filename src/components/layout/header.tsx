@@ -69,25 +69,125 @@ const Header = () => {
           <Logo />
         </Link>
         <div className="hidden items-center gap-6 md:flex">
-          <ul className="flex list-none items-center gap-6">
-            {NAV_LINKS.map((link, index) => (
-              <li key={index}>
-                <Link href={link.href}>{link.label}</Link>
-              </li>
-            ))}
-          </ul>
+          <ul className="flex list-none items-center gap-8">
+              {NAV_LINKS.map((link, index) => (
+                <li key={index}>
+                  <Link
+                    href={link.href}
+                    className="
+                      group
+                      relative
+                      text-[15px]
+                      font-semibold
+                      text-gray-700
+                      transition-all
+                      duration-300
+
+                      hover:text-blue-500
+
+                      dark:text-gray-300
+                      dark:hover:text-[#60a5fa]
+                    "
+                  >
+                    {/* Text */}
+                    <span
+                      className="
+                        relative
+                        z-10
+                        transition-all
+                        duration-300
+                        group-hover:drop-shadow-[0_0_10px_rgba(59,130,246,0.9)]
+                      "
+                    >
+                      {link.label}
+                    </span>
+
+                    {/* Neon underline */}
+                    <span
+                      className="
+                        absolute
+                        -bottom-2
+                        left-1/2
+                        h-[2px]
+                        w-0
+                        -translate-x-1/2
+                        rounded-full
+                        bg-blue-500
+                        shadow-[0_0_12px_#3b82f6]
+                        transition-all
+                        duration-300
+                        group-hover:w-full
+                      "
+                    />
+
+                    {/* Glow background */}
+                    <span
+                      className="
+                        absolute
+                        inset-0
+                        -z-10
+                        rounded-xl
+                        opacity-0
+                        blur-xl
+                        transition-all
+                        duration-300
+                        group-hover:opacity-100
+                        bg-blue-500/10
+                      "
+                    />
+                  </Link>
+                </li>
+              ))}
+            </ul>
           <div className="h-6 w-0.5 bg-gray-100"></div>
           <div className="flex items-center gap-4">
-            <ThemeSwitcher />
-            <DownloadCV />
-          </div>
+
+                {/* Theme Switch */}
+                <div
+                  className="
+                    rounded-full
+                    border
+                    border-transparent
+                    transition-all
+                    duration-300
+
+                    hover:border-blue-500/40
+                    hover:shadow-[0_0_18px_rgba(59,130,246,0.45)]
+                  "
+                >
+                  <ThemeSwitcher />
+                </div>
+
+                {/* Download CV */}
+                <div
+                  className="
+                    rounded-full
+                    transition-all
+                    duration-300
+
+                    hover:shadow-[0_0_22px_rgba(59,130,246,0.55)]
+                    hover:-translate-y-[1px]
+                  "
+                >
+                  <DownloadCV />
+                </div>
+              </div>
         </div>
 
         <Drawer open={isOpen} onOpenChange={setIsOpen}>
           <DrawerTrigger asChild className="flex md:hidden">
-            <IconButton>
-              <Menu />
-            </IconButton>
+            <IconButton
+                className="
+                  transition-all
+                  duration-300
+
+                  hover:border-blue-500/40
+                  hover:text-blue-500
+                  hover:shadow-[0_0_18px_rgba(59,130,246,0.5)]
+                "
+              >
+                <Menu />
+              </IconButton>
           </DrawerTrigger>
           <DrawerContent>
             <div className="flex items-center justify-between border-b border-gray-100 p-4">
