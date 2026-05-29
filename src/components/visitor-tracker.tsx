@@ -4,13 +4,13 @@ import { useEffect, useState } from 'react';
 
 import {
   MapPin,
-  Sparkles,
-  X,
+  // Sparkles,
+  // X,
 } from 'lucide-react';
 
 
 const TRACK_INTERVAL =
-  24 * 60 * 60 * 1000;
+   7* 60 * 60 * 1000;
 
 
 export default function VisitorTracker() {
@@ -258,7 +258,7 @@ export default function VisitorTracker() {
 
 
 
-          {/* Close */}
+          {/* Close
           <button
             onClick={handleSkip}
 
@@ -279,7 +279,7 @@ export default function VisitorTracker() {
 
             <X size={17}/>
 
-          </button>
+          </button> */}
 
 
 
@@ -299,8 +299,8 @@ export default function VisitorTracker() {
               className="
                 flex
 
-                h-14
-                w-14
+                h-11
+                w-11
 
                 shrink-0
 
@@ -349,7 +349,7 @@ export default function VisitorTracker() {
                 "
               >
 
-                Ready to Explore?
+                Explore My Digital Space 🚀
 
               </h2>
 
@@ -371,8 +371,7 @@ export default function VisitorTracker() {
                 "
               >
 
-                Personalize your portfolio
-                experience.
+                Enable a smarter portfolio experience.
 
               </p>
 
@@ -401,9 +400,8 @@ export default function VisitorTracker() {
 
               bg-blue-50
 
-              px-4
+              px-10
               py-3
-
 
               text-xs
 
@@ -418,11 +416,7 @@ export default function VisitorTracker() {
             "
           >
 
-            <Sparkles size={15}/>
-
-
-            Optional • Secure • Privacy friendly
-
+            ✨ Smart • Secure • Personalized
 
           </div>
 
@@ -483,7 +477,7 @@ export default function VisitorTracker() {
               "
             >
 
-              Ready
+              🎉Enter Portfolio →
 
             </button>
 
@@ -491,70 +485,32 @@ export default function VisitorTracker() {
 
 
 
-            <button
-
+            {/* <button
               onClick={handleSkip}
-
               className="
                 flex-1
-
-
                 rounded-xl
-
-
                 border
-
-
                 border-blue-100
-
-
                 bg-white/70
-
-
                 py-3
-
-
                 text-sm
-
                 font-semibold
-
-
                 text-gray-700
-
-
                 transition
-
-
                 hover:bg-blue-50
-
-
-
-
                 dark:border-white/[0.08]
-
-
                 dark:bg-transparent
-
-
                 dark:text-gray-300
-
-
                 dark:hover:bg-white/[0.05]
               "
             >
-
               No
-
-            </button>
-
-
+            </button> */}
 
           </div>
 
-
-
         </div>
-
 
       </div>
 
