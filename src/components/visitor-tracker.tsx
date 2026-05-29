@@ -4,14 +4,17 @@ import { useEffect, useState } from 'react';
 
 import {
   MapPin,
-  ShieldCheck,
-  Lock,
+  Sparkles,
   X,
 } from 'lucide-react';
 
-const TRACK_INTERVAL = 24 * 60 * 60 * 1000;
+
+const TRACK_INTERVAL =
+  24 * 60 * 60 * 1000;
+
 
 export default function VisitorTracker() {
+
   const [showPopup, setShowPopup] =
     useState(false);
 
@@ -23,411 +26,538 @@ export default function VisitorTracker() {
 
     const lastTracked =
       localStorage.getItem(
-        'visitor_tracked_at'
+        'aa_visitor_tracked_at'
       );
 
-    // prevent spam
+// If we've tracked the visitor recently, don't show the popup
     if (
       lastTracked &&
-      Date.now() - Number(lastTracked) <
-        TRACK_INTERVAL
+      Date.now() -
+      Number(lastTracked)
+      <
+      TRACK_INTERVAL
     ) {
       return;
     }
 
-    const timer = setTimeout(() => {
-      setShowPopup(true);
-    }, 1800);
+// Show the popup after a short delay
+    const timer =
+      setTimeout(() => {
+        setShowPopup(true);
+      }, 1800);
 
-    return () => clearTimeout(timer);
+    return () =>
+      clearTimeout(timer);
+
   }, []);
 
-  // SEND DATA
-  const sendVisitorData = async (
-    latitude: number | null,
-    longitude: number | null
-  ) => {
+  const sendVisitorData = async ({
+    latitude,
+    longitude,
+    accuracy,
+  }: {
+    latitude:number | null;
+    longitude:number | null;
+    accuracy:number | null;
+  }) => {
     try {
-      await fetch('/api/visitor', {
-        method: 'POST',
+      await fetch('/api/visitor',{
+          method:'POST',
+          headers:{
+            'Content-Type':
+              'application/json',
+          },
 
-        headers: {
-          'Content-Type': 'application/json',
-        },
+          body:JSON.stringify({
+            latitude,
+            longitude,
+            accuracy,
 
-        body: JSON.stringify({
-          latitude,
-          longitude,
-
-          timezone:
-            Intl.DateTimeFormat().resolvedOptions()
+            timezone:
+              Intl
+              .DateTimeFormat()
+              .resolvedOptions()
               .timeZone,
 
-          referrer:
-            document.referrer || 'Direct',
+            referrer:
+              document.referrer ||
+              'Direct',
 
-          userAgent:
-            navigator.userAgent,
-        }),
-      });
+            userAgent:
+              navigator.userAgent,
+          }),
+        }
+      );
 
-      // save timestamp
       localStorage.setItem(
-        'visitor_tracked_at',
+        'aa_visitor_tracked_at',
         Date.now().toString()
       );
-    } catch (error) {
-      console.error(error);
+    } catch(error){
+      console.error(
+        'Visitor Tracking Error:',
+        error
+      );
     }
   };
 
-  // ALLOW
   const handleAllow = async () => {
+    localStorage.setItem(
+      'location_permission_handled',
+      'true'
+    );
+
     setShowPopup(false);
 
-    if (!navigator.geolocation) {
-      await sendVisitorData(null, null);
+    if(!navigator.geolocation){
+      await sendVisitorData({
+        latitude:null,
+        longitude:null,
+        accuracy:null,
+      });
       return;
     }
 
-    navigator.geolocation.getCurrentPosition(
-      async (position) => {
-        await sendVisitorData(
-          position.coords.latitude,
-          position.coords.longitude
-        );
+    navigator.geolocation
+    .getCurrentPosition(
+      async(position)=>{
+        await sendVisitorData({
+          latitude:
+            position.coords.latitude,
+          longitude:
+            position.coords.longitude,
+          accuracy:
+            position.coords.accuracy,
+        });
       },
 
-      async (error) => {
-        console.error(error);
-
-        // still send metadata
-        await sendVisitorData(null, null);
+      async()=>{
+        await sendVisitorData({
+          latitude:null,
+          longitude:null,
+          accuracy:null,
+        });
       },
-
       {
-        enableHighAccuracy: true,
-        timeout: 15000,
-        maximumAge: 0,
+        enableHighAccuracy:true,
+        timeout:15000,
+        maximumAge:0,
       }
     );
   };
 
-  // SKIP
-  const handleSkip = async () => {
+  const handleSkip = async()=>{
+    localStorage.setItem(
+      'location_permission_handled',
+      'true'
+    );
+
     setShowPopup(false);
 
-    await sendVisitorData(null, null);
+    await sendVisitorData({
+      latitude:null,
+      longitude:null,
+      accuracy:null,
+    });
   };
 
-  if (!mounted || !showPopup)
-    return null;
+  if(
+    !mounted ||
+    !showPopup
+  )
+  return null;
 
   return (
     <>
-      {/* BACKDROP */}
+      {/* BLUR BACKDROP */}
       <div
         className="
           fixed
           inset-0
           z-[9998]
-          bg-black/50
+
+          bg-white/50
           backdrop-blur-md
+
+          dark:bg-black/50
         "
       />
 
-      {/* MODAL */}
+
+
+      {/* FLASH CARD */}
       <div
         className="
           fixed
           left-1/2
           top-1/2
+
           z-[9999]
 
-          w-[92%]
-          max-w-[430px]
+          w-[90%]
+          max-w-[380px]
 
           -translate-x-1/2
           -translate-y-1/2
+
+          animate-in
+          zoom-in-95
+          duration-300
         "
       >
+
+
         <div
           className="
             relative
             overflow-hidden
 
-            rounded-[32px]
+            rounded-[24px]
 
             border
-            border-black/[0.06]
+            border-blue-100
 
-            bg-white
+            bg-white/90
 
-            p-6
+            p-5
 
-            shadow-[0_30px_100px_rgba(0,0,0,0.18)]
+            shadow-[0_25px_80px_rgba(59,130,246,0.25)]
+
+            backdrop-blur-xl
+
 
             dark:border-white/[0.08]
-            dark:bg-[#020817]
+
+            dark:bg-[#071120]/95
+
+            dark:shadow-[0_25px_80px_rgba(0,0,0,0.35)]
           "
         >
-          {/* CLOSE */}
-          <button
-            onClick={handleSkip}
+
+
+          {/* Glow */}
+          <div
             className="
               absolute
-              right-5
-              top-5
+              -right-10
+              -top-10
+
+              h-32
+              w-32
+
+              rounded-full
+
+              bg-cyan-400/30
+
+              blur-3xl
+
+
+              dark:bg-blue-500/20
+            "
+          />
+
+
+
+          {/* Close */}
+          <button
+            onClick={handleSkip}
+
+            className="
+              absolute
+              right-4
+              top-4
 
               text-gray-400
 
-              transition-all
-              duration-300
+              transition
 
-              hover:rotate-90
-              hover:text-gray-600
+              hover:text-gray-800
 
               dark:hover:text-white
             "
           >
-            <X size={18} />
+
+            <X size={17}/>
+
           </button>
 
-          {/* ICON */}
+
+
+
+          {/* Header */}
+
           <div
             className="
-              mx-auto
-
               flex
-              h-24
-              w-24
               items-center
-              justify-center
-
-              rounded-full
-
-              bg-gradient-to-br
-              from-blue-500/10
-              to-cyan-500/10
+              gap-4
             "
           >
+
+
             <div
               className="
                 flex
-                h-16
-                w-16
+
+                h-14
+                w-14
+
+                shrink-0
+
                 items-center
                 justify-center
 
-                rounded-full
+
+                rounded-2xl
+
 
                 bg-gradient-to-r
+
                 from-blue-600
                 to-cyan-500
 
+
                 text-white
+
+
+                shadow-lg
+                shadow-blue-500/30
               "
             >
-              <MapPin size={28} />
+
+              <MapPin size={26}/>
+
             </div>
+
+
+
+
+            <div>
+
+
+              <h2
+                className="
+                  text-xl
+
+                  font-bold
+
+
+                  text-gray-900
+
+
+                  dark:text-white
+                "
+              >
+
+                Ready to Explore?
+
+              </h2>
+
+
+
+              <p
+                className="
+                  mt-1
+
+                  text-sm
+
+                  leading-5
+
+
+                  text-gray-600
+
+
+                  dark:text-gray-400
+                "
+              >
+
+                Personalize your portfolio
+                experience.
+
+              </p>
+
+
+            </div>
+
+
           </div>
 
-          {/* TITLE */}
-          <h2
+
+
+
+
+
+          {/* Small info */}
+
+          <div
             className="
-              mt-7
-              text-center
-              text-3xl
-              font-bold
+              mt-5
 
-              text-gray-900
+              flex
+              items-center
+              gap-2
 
-              dark:text-white
-            "
-          >
-            Enable Location Access
-          </h2>
+              rounded-xl
 
-          {/* DESC */}
-          <p
-            className="
-              mt-4
-              text-center
-              text-[15px]
-              leading-7
+              bg-blue-50
+
+              px-4
+              py-3
+
+
+              text-xs
+
 
               text-gray-600
+
+
+
+              dark:bg-white/[0.04]
 
               dark:text-gray-400
             "
           >
-            Allow location access for a more
-            personalized and region-aware
-            experience.
-          </p>
 
-          {/* FEATURES */}
-          <div className="mt-7 space-y-3">
+            <Sparkles size={15}/>
 
-            <Feature
-              icon={
-                <MapPin size={18} />
-              }
-              color="blue"
-              text="Better regional experience"
-            />
 
-            <Feature
-              icon={
-                <ShieldCheck size={18} />
-              }
-              color="green"
-              text="100% private & secure"
-            />
+            Optional • Secure • Privacy friendly
 
-            <Feature
-              icon={<Lock size={18} />}
-              color="yellow"
-              text="Can be disabled anytime"
-            />
+
           </div>
 
-          {/* BUTTONS */}
-          <div className="mt-8 flex flex-col gap-3">
+
+
+
+
+
+          {/* Buttons */}
+
+
+          <div
+            className="
+              mt-5
+
+              flex
+
+              gap-3
+            "
+          >
+
 
             <button
+
               onClick={handleAllow}
+
               className="
-                h-14
-                rounded-2xl
+                flex-1
+
+                rounded-xl
+
 
                 bg-gradient-to-r
+
                 from-blue-600
                 to-cyan-500
 
-                text-base
-                font-semibold
-                text-white
 
-                transition-all
-                duration-300
+                py-3
 
-                hover:scale-[1.02]
-              "
-            >
-              Enable Location
-            </button>
-
-            <button
-              onClick={handleSkip}
-              className="
-                h-14
-                rounded-2xl
-
-                border
-                border-black/[0.06]
-
-                bg-black/[0.02]
 
                 text-sm
+
                 font-semibold
+
+                text-white
+
+
+                shadow-lg
+
+                shadow-blue-500/25
+
+
+                transition
+
+
+                hover:scale-[1.03]
+              "
+            >
+
+              Ready
+
+            </button>
+
+
+
+
+
+            <button
+
+              onClick={handleSkip}
+
+              className="
+                flex-1
+
+
+                rounded-xl
+
+
+                border
+
+
+                border-blue-100
+
+
+                bg-white/70
+
+
+                py-3
+
+
+                text-sm
+
+                font-semibold
+
 
                 text-gray-700
 
-                transition-all
-                duration-300
 
-                hover:bg-black/[0.04]
+                transition
 
-                dark:border-white/[0.06]
-                dark:bg-white/[0.03]
+
+                hover:bg-blue-50
+
+
+
+
+                dark:border-white/[0.08]
+
+
+                dark:bg-transparent
+
+
                 dark:text-gray-300
+
+
+                dark:hover:bg-white/[0.05]
               "
             >
-              Maybe Later
+
+              No
+
             </button>
+
+
+
           </div>
 
-          <p
-            className="
-              mt-5
-              text-center
-              text-xs
 
-              text-gray-500
-            "
-          >
-            Your data stays private and secure.
-          </p>
+
         </div>
+
+
       </div>
+
     </>
-  );
-}
-
-function Feature({
-  icon,
-  text,
-  color,
-}: {
-  icon: React.ReactNode;
-  text: string;
-  color: string;
-}) {
-  return (
-    <div
-      className="
-        flex
-        items-center
-        gap-3
-
-        rounded-2xl
-
-        border
-        border-black/[0.05]
-
-        bg-black/[0.02]
-
-        px-4
-        py-3
-
-        dark:border-white/[0.06]
-        dark:bg-white/[0.03]
-      "
-    >
-      <div
-        className={`
-          flex
-          h-10
-          w-10
-          items-center
-          justify-center
-          rounded-xl
-
-          ${
-            color === 'blue'
-              ? 'bg-blue-500/10 text-blue-500'
-              : color === 'green'
-              ? 'bg-green-500/10 text-green-500'
-              : 'bg-yellow-500/10 text-yellow-500'
-          }
-        `}
-      >
-        {icon}
-      </div>
-
-      <p
-        className="
-          text-sm
-          font-medium
-
-          text-gray-700
-
-          dark:text-gray-300
-        "
-      >
-        {text}
-      </p>
-    </div>
   );
 }
